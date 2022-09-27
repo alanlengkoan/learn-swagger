@@ -1,0 +1,150 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "OpenApi Demo Documentation",
+        "description": "OpenApi Demo Documentation",
+        "contact": {
+            "email": "alansaputralengkoan@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8000/api",
+            "description": "Demo API Server"
+        }
+    ],
+    "paths": {
+        "/settings": {
+            "patch": {
+                "description": "Settings",
+                "operationId": "0e62ce4f7594e210ffe608d7e5d4afef",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "key": {
+                                        "type": "string",
+                                        "example": "overtime_method"
+                                    },
+                                    "value": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Settings updated successfully"
+                    },
+                    "500": {
+                        "description": "Settings process failed"
+                    }
+                }
+            }
+        },
+        "/employees": {
+            "post": {
+                "description": "Employees",
+                "operationId": "07eec3985fc97684bfd439fa57c5fd26",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "alan"
+                                    },
+                                    "salary": {
+                                        "type": "integer",
+                                        "example": 2000000
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Employees process successfully"
+                    },
+                    "500": {
+                        "description": "Employees process failed"
+                    }
+                }
+            }
+        },
+        "/overtimes": {
+            "post": {
+                "description": "Overtimes",
+                "operationId": "36d663e24ed1ca772f45a40261af3cfb",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "employee_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "date": {
+                                        "type": "string",
+                                        "example": "2021-01-01"
+                                    },
+                                    "time_started": {
+                                        "type": "string",
+                                        "example": "08:30"
+                                    },
+                                    "time_ended": {
+                                        "type": "string",
+                                        "example": "17:00"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Overtimers process successfully"
+                    },
+                    "500": {
+                        "description": "Overtimes process failed"
+                    }
+                }
+            }
+        },
+        "/overtime-pays/calculate": {
+            "get": {
+                "description": "Overtime pays calculate",
+                "operationId": "465c67916af9884fe28a415564060460",
+                "parameters": [
+                    {
+                        "name": "month",
+                        "in": "query",
+                        "description": "For month and year",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Overtimer pays calculate successfully"
+                    },
+                    "500": {
+                        "description": "Overtimer pays calculate failed"
+                    }
+                }
+            }
+        }
+    }
+}

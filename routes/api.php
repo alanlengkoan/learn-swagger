@@ -1,15 +1,13 @@
 <?php
 
-use App\Http\Controllers\api\Employees;
-use App\Http\Controllers\api\Overtimes;
-use App\Http\Controllers\api\Settings;
+use App\Http\Controllers\api\Overtime;
 use Illuminate\Support\Facades\Route;
 
 // untuk settings
-Route::put('/settings', [Settings::class, 'index']);
+Route::patch('/settings', [Overtime::class, 'settings']);
 // untuk employees
-Route::post('/employees', [Employees::class, 'index']);
+Route::post('/employees', [Overtime::class, 'employees']);
 // untuk overtimes
-Route::post('/overtimes', [Overtimes::class, 'index']);
+Route::post('/overtimes', [Overtime::class, 'overtimes']);
 // untuk overtimes calculate
-Route::get('/overtime-pays/calculate', [Overtimes::class, 'overtime_calculate']);
+Route::get('/overtime-pays/calculate', [Overtime::class, 'overtime_calculate']);
